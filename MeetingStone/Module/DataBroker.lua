@@ -127,7 +127,6 @@ function DataBroker:OnInitialize()
     self:RegisterMessage('MEETINGSTONE_APP_NEW_FOLLOWER_STATUS_UPDATE', 'UpdateFlash')
     self:RegisterMessage('MEETINGSTONE_NEW_APPLICANT_STATUS_UPDATE')
     self:RegisterMessage('MEETINGSTONE_APP_READY')
-    self:RegisterMessage('MEETINGSTONE_ANNOUNCEMENT_UPDATED', 'UpdateFlash')
 end
 
 function DataBroker:MEETINGSTONE_SETTING_CHANGED(_, key, value, onUser)
@@ -230,14 +229,6 @@ local flashs = {
         -- end,
         -- panel = AppParent,
     -- },
-    {
-        flash = function()
-            return DataCache:GetObject('AnnList'):IsNew()
-        end,
-        shown = function()
-            return MainPanel.AnnBlocker:IsVisible()
-        end,
-    }
 }
 
 function DataBroker:UpdateFlash()

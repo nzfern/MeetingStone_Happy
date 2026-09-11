@@ -6,13 +6,6 @@ local ServerDataCache = Addon:NewModule('ServerDataCache', 'AceEvent-3.0')
 local nepy = require('NetEasePinyin-1.0')
 
 function ServerDataCache:OnInitialize()
-    local AnnList = DataCache:NewObject('AnnList') do
-        AnnList:SetCallback('OnCacheChanged', AnnList.SetData)
-        AnnList:SetCallback('OnDataChanged', function(AnnList, data)
-            self:SendMessage('MEETINGSTONE_ANNOUNCEMENT_UPDATED',AnnList:IsNew())
-        end)
-    end
-
     local MallData = DataCache:NewObject('MallData') do
         MallData:SetCallback('OnCacheChanged', function(MallData, cache)
             self:FormatMallData(MallData, cache)

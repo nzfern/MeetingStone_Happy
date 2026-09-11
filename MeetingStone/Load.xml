@@ -4,7 +4,6 @@
     <Include file="Localization\Localization.xml"/>
 
     <Script file="Custom.lua"/>
-    <Script file="ChangeLog.lua"/>
     <Script file="Data.lua"/>
     <Script file="Memorize.lua"/>
     <Script file="API.lua"/>
