@@ -149,6 +149,7 @@ end
 function LfgService:Search(categoryId, baseFilter, activityId, isMPlus)
     self.ourSearch = true
     self.activityId = activityId
+    baseFilter = baseFilter or 0
     local filterVal = categoryId == GROUP_FINDER_CATEGORY_ID_DUNGEONS and 1 or 0
     local advFilter = isMPlus and categoryId == GROUP_FINDER_CATEGORY_ID_DUNGEONS and (not activityId) and C_LFGList.GetAdvancedFilter() or nil
 
@@ -167,4 +168,4 @@ function LfgService:GetSearchResultMemberInfo(...)
 	if (info) then
 		return info.assignedRole, info.classFilename, info.className, info.specName, info.isLeader;
 	end
-end    
+end

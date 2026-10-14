@@ -561,7 +561,7 @@ local sort = sort
 
 local UnitClass = UnitClass
 local UnitGroupRolesAssigned = UnitGroupRolesAssigned
-local C_LFGList_GetSearchResultMemberInfo = C_LFGList.GetSearchResultMemberInfo
+local C_LFGList_GetSearchResultPlayerInfo = C_LFGList.GetSearchResultPlayerInfo
 local hooksecurefunc = hooksecurefunc
 
 local roleCache = {}
@@ -595,7 +595,10 @@ end
 
 local function GetCorrectRoleInfo(frame, i)
     if frame.resultID then
-        return C_LFGList_GetSearchResultMemberInfo(frame.resultID, i)
+        local info = C_LFGList_GetSearchResultPlayerInfo(frame.resultID, i)
+        if info then
+            return info.assignedRole, info.classFilename, info.className, info.specName, info.isLeader, info.isLeaver
+        end
     elseif frame == ApplicationViewerFrame then
         return GetPartyMemberInfo(i)
     end
