@@ -298,7 +298,16 @@ function GetActivityName(activityId, customId)
 end
 
 function GetActivityShortName(activityId, customId)
-    return customId and ACTIVITY_CUSTOM_SHORT_NAMES[customId] or select(2, C_LFGList.GetActivityInfo(activityId))
+    if customId then
+        return ACTIVITY_CUSTOM_SHORT_NAMES[customId]
+    end
+
+    if not activityId then
+        return
+    end
+
+    local activityInfo = C_LFGList.GetActivityInfoTable(activityId)
+    return activityInfo and activityInfo.shortName
 end
 
 function GetModeName(mode)

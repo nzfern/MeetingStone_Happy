@@ -392,6 +392,7 @@ CATEGORY = {
             [404] = true, -- 梦境裂隙
             [422] = true, -- 孢陨幽境
             [424] = true, -- 裂毒之渊
+            [427] = true, -- 克希斯破封（12.1.5）
             [429] = true, -- 潮缚石窟
 
             [405] = true, -- 学府骚动
@@ -472,6 +473,11 @@ ACTIVITY_NAME_CACHE = setmetatable({}, {
 CUSTOM_PROGRESSION_LIST = {}
 
 RAID_PROGRESSION_LIST = {
+    -- Midnight Season 2 / Patch 12.1.5
+    [1975] = {{id = 63840, name = '基希克斯'}}, -- 克希斯破封（普通）
+    [1976] = {{id = 63841, name = '基希克斯'}}, -- 克希斯破封（英雄）
+    [1977] = {{id = 63842, name = '基希克斯'}}, -- 克希斯破封（史诗）
+
     -- 7.0
     [482] = {
         {id = 11954, name = '加洛西灭世者'}, {id = 11957, name = '萨格拉斯的恶犬'},
