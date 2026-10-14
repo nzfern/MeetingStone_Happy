@@ -179,6 +179,8 @@ function Activity:Update()
         self:SetKilledBossCount(completedEncounters and #completedEncounters or 0)
     end
 
+    -- WoW 12.1.5 removed C_LFGList.GetSearchResultMemberInfo. This optional
+    -- obfuscated class-count hook is not used by MeetingStone, so keep it disabled.
     --fnn(self)
 
     self:UpdateSortValue()
